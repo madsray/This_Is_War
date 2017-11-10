@@ -1,3 +1,46 @@
+@font-face {
+font-family: "Top_Secret";
+src: url("images/Top_Secret.ttf");
+}
 body {
-  background-color: ivory;
+  background-image: url("images/Camo-background.jpg");
+
+
+}
+img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+header {
+  text-align: center;
+  color: white;
+}
+h1 {
+  font-size: 100px;
+  font-family: "Top_Secret";
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+}
+h2 {
+  font-size: 50px;
+  font-family: "arial", sans-serif;
+  padding-top: 0px;
+  margin-top: 5px;
+
+}
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+ a {
+  text-decoration: none;
+  color: white;
+  background-color: #57470D;
+  text-align: center;
+  padding: 10px;
+  margin: 50px;
+  font-size: 25px;
+  font-family: "arial", sans-serif;
 }

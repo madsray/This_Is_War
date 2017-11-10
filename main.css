@@ -11,17 +11,17 @@ background-image: url("images/Camo-background.png") ;
   font-family: "Top_Secret",sans-serif;
   color: white;
   text-align: center;
+  margin: 20px;
 }
 .container {
-  /*background-color: white;*/
   display: flex;
-  
   margin: auto;
   justify-content: flex-start;
 
 }
+
 img {
-  padding: 60px;
+  padding: 10%;
   width: 50%;
 
 }
@@ -31,4 +31,14 @@ padding: 75px;
 color: white;
 font-size: 50px;
 font-family: "arial", sans-serif;
+}
+a {
+ text-decoration: none;
+ color: white;
+ background-color: #57470D;
+ text-align: center;
+ padding: 10px;
+ margin: 50px;
+ font-size: 25px;
+ font-family: "arial", sans-serif;
 }

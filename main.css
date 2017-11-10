@@ -12,15 +12,23 @@ background-image: url("images/Camo-background.png") ;
   color: white;
   text-align: center;
 }
-#container {
+.container {
   /*background-color: white;*/
   display: flex;
-  width: 50%;
-  margin-left: 10%;
-  justify-content: space-around;
+  
+  margin: auto;
+  justify-content: flex-start;
 
 }
 img {
-  /*background-color: red;*/
-  width: 206px;
+  padding: 60px;
+  width: 50%;
+
+}
+
+h2 {
+padding: 75px;
+color: white;
+font-size: 50px;
+font-family: "arial", sans-serif;
 }

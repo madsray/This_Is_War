@@ -1,3 +1,26 @@
+@font-face {
+font-family: "Top_Secret";
+src: url("images/Top_Secret.ttf");
+/*dafont.com*/
+}
 body {
-background-color: url('images/Camo-background.png') ;
+background-image: url("images/Camo-background.png") ;
+}
+#h1 {
+  font-size: 60px;
+  font-family: "Top_Secret",sans-serif;
+  color: white;
+  text-align: center;
+}
+#container {
+  /*background-color: white;*/
+  display: flex;
+  width: 50%;
+  margin-left: 10%;
+  justify-content: space-around;
+
+}
+img {
+  /*background-color: red;*/
+  width: 206px;
 }

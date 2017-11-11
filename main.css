@@ -6,39 +6,26 @@ src: url("images/Top_Secret.ttf");
 body {
 background-image: url("images/Camo-background.png") ;
 }
-#h1 {
-  font-size: 60px;
-  font-family: "Top_Secret",sans-serif;
+h1 {
+  font-size: 50px;
+  font-family: "Top_Secret", sans-serif;
   color: white;
   text-align: center;
-  margin: 20px;
 }
-.container {
+p {
+  color: white;
+  font-size: 30px;
+  font-family: "arial", sans-serif;
+  padding-left: 0px;
+}
+
+.row1, .row2 {
   display: flex;
-  margin: auto;
-  justify-content: flex-start;
-
+  justify-content: center;
+  margin-top: .5em;
 }
-
-img {
-  padding: 10%;
-  width: 50%;
-
-}
-
-h2 {
-padding: 75px;
-color: white;
-font-size: 50px;
-font-family: "arial", sans-serif;
-}
-a {
- text-decoration: none;
- color: white;
- background-color: #57470D;
- text-align: center;
- padding: 10px;
- margin: 50px;
- font-size: 25px;
- font-family: "arial", sans-serif;
+.row1 img, .row2 img {
+  width: 10%;
+  height: 40%;
+  padding: 10px;
 }

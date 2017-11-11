@@ -11,25 +11,39 @@ h1 {
   font-family: "Top_Secret", sans-serif;
   color: white;
   text-align: center;
+  margin: 0 auto;
 }
 p {
   color: white;
   font-size: 30px;
   font-family: "arial", sans-serif;
-  padding-left: 0px;
+  margin: 10px 0px 0px 30px;
 }
 
 .row1, .row2 {
   display: flex;
   justify-content: center;
-  margin-top: .5em;
+
+
 }
 .row1 img, .row2 img {
-  width: 10%;
-  height: 40%;
-  padding: 10px;
+  max-height: 206px;
+  padding:0px 10px;
+
 }
-a {
+#deal a {
+  display: block;
+  margin: 10px auto;
+  text-decoration: none;
+  color: white;
+  background-color: #57470D;
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  font-family: "arial", sans-serif;
+  width: 75px;px;
+}
+/*a {
  text-decoration: none;
  color: white;
  background-color: #57470D;
@@ -39,13 +53,15 @@ a {
  font-size: 25px;
  font-family: "arial", sans-serif;
 
-}
-#button {
+}*/
+#button a{
   padding-top:40px;
   padding-left: 40px;
-}
-#deal  {
-  display: block;
-  margin: 10% 50%;
-
+  text-decoration: none;
+  color: white;
+  background-color: #57470D;
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  font-family: "arial", sans-serif;
 }

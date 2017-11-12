@@ -54,3 +54,6 @@ p {
   font-size: 25px;
   font-family: "arial", sans-serif;
 }
+#deal:hover{
+  cursor: pointer;
+}

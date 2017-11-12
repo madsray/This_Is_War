@@ -37,7 +37,7 @@ const $sixS = $('<img>').attr("src","images/6S.png");
 const $sixH = $('<img>').attr("src","images/6H.png");
 const $sevenC = $('<img>').attr("src","images/7C.png");
 const $sevenD = $('<img>').attr("src","images/7D.png");
-const $sevenS = $('<img>').attr("src","images/7S.png");
+const $sevenS = $('<img>').attr("src","images/S7.png");
 const $sevenH = $('<img>').attr("src","images/7H.png");
 const $eightC = $('<img>').attr("src","images/8C.png");
 const $eightD = $('<img>').attr("src","images/8D.png");
@@ -67,7 +67,7 @@ const $aC = $('<img>').attr("src","images/AC.png");
 const $aS = $('<img>').attr("src","images/AS.png");
 const $aH = $('<img>').attr("src","images/AH.png");
 const $aD = $('<img>').attr("src","images/AD.png");
-const cardArray = [
+const deck = [
   {
     imageAssign: $twoC,
     value: 2,
@@ -242,10 +242,11 @@ const cardArray = [
     imageAssign: $tenD,
     value: 10,
     name: "tenDiamond"
-  },  {
-      imageAssign: $tenH,
-      value: 10,
-      name: "tenHeart"
+  },
+  {
+    imageAssign: $tenH,
+    value: 10,
+    name: "tenHeart"
     },
     {
       imageAssign: $jC,
@@ -310,28 +311,59 @@ const cardArray = [
     {
       imageAssign: $aS,
       value: 14,
-      name: "kindHeart"
+      name: "aceSpade"
     },
     {
       imageAssign: $aH,
       value: 14,
-      name: "kindHeart"
+      name: "aceHeart"
     },
     {
       imageAssign: $aD,
       value: 14,
-      name: "kindHeart"
+      name: "aceDiamond"
     },
     {
       imageAssign: $aC,
       value: 14,
-      name: "kindHeart"
-    },
-
-
-
-
+      name: "aceClub"
+    }
 ]
+const playersArray = [];
+const computersArray = [];
+const $deal = $('#deal');
+//+++++++++++++++++++++++++++++++++++++
+
+ const fillArray=() => {
+
+	shuffle(deck);
+	splitCards(deck);
+}
+
+//function to shuffle deck of cards.
+const shuffle= (deck)=> {
+    for(var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
+    return deck;
+}
+
+//function to split shuffled deck in half
+ const splitCards = (deck) => {
+	let i = 0;
+
+	//push a card to each "hand" array
+	while (i != deck.length) {
+		playersArray.push(deck[i]);
+		computersArray.push(deck[(i+1)]);
+		i+=2;
+	}
+
+}
+
+//+++++++++++++++++++++++++++++++++++++
+$deal.on('click', fillArray);
+console.log(fillArray);
+console.log(playersArray);
+console.log(computersArray);
 
 
 

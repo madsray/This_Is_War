@@ -332,8 +332,11 @@ const deck = [
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
-//+++++++++++++++++++++++++++++++++++++
-
+const $card = $('#playerBack');
+const $showCardP = $('#player');
+const $showCardC = $('#computer');
+//++++++++++++Dealing Cards+++++++++++++++++++++++++
+//https://github.com/MisterTeeRoland/war/blob/master/game.js
  const fillArray=() => {
 
 	shuffle(deck);
@@ -358,10 +361,26 @@ const shuffle= (deck)=> {
 	}
 
 }
+// ++++++++++++++++game play+++++++++++++++++++++++++++++
+const playGame = () => {
+  for (let i=0; i<=computersArray.length; i++){
+  $($showCardC).append(computersArray[0]);
+}
+  for (let i=0; i<=playersArray.length; i++){
+    $($showCardP).append(playersArray[0].imageAssign);
 
-//+++++++++++++++++++++++++++++++++++++
+  }
+
+}
+//++++++++++++++clicks+++++++++++++++++++++++
 $deal.on('click', fillArray);
-console.log(fillArray);
+$card.on('click', playGame);
+
+
+
+
+//++++++++++++check+++++++++++++++++++++
+// console.log(fillArray);
 console.log(playersArray);
 console.log(computersArray);
 

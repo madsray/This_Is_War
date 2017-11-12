@@ -54,6 +54,6 @@ p {
   font-size: 25px;
   font-family: "arial", sans-serif;
 }
-#deal:hover{
+#deal:hover, #playerBack:hover{
   cursor: pointer;
 }

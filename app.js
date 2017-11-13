@@ -21,7 +21,6 @@ console.log("hey this is working!")
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
-const $card = $('#playerBack');
 const suits = ["S","H","D","C"];
 const faces = ['2','3','4','5','6','7','8','9','10','11','12','13','14'];
 // +++++++++++++++++Class+++++++++++++++++++++++====++++++++
@@ -114,18 +113,20 @@ const warArray = [
 	}
 
 }
+splitArray();
 //+++++++++++++hitCard+++++++++++++++++++++
 const hitCard = () => {
 
-  const $imageP= $('<img>').attr('src',warArray[0].image);
+  const $imageP= $('<img>').attr('src',playersArray[0].image);
   $('#player').append($imageP);
-  console.log('#player')
+  const $imageC= $('<img>').attr('src',computersArray[0].image);
+  $('#computer').append($imageC);
 }
 
 
 //++++++++++++++clicks+++++++++++++++++++++++
- $deal.on('click', splitArray);
- $card.on('click', hitCard);
+
+ $deal.on('click', hitCard);
 
 // //++++++++++++check+++++++++++++++++++++
 

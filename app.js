@@ -17,7 +17,7 @@ console.log("hey this is working!")
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // +++++++++++++++++++set variable+++++++++++++++++++++++++++++
-
+const gamePlay = [];
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
@@ -115,23 +115,48 @@ const warArray = [
 }
 splitArray();
 //+++++++++++++hitCard+++++++++++++++++++++
-const hitCard = () => {
+const dealCard = () => {
 
   const $imageP= $('<img>').attr('src',playersArray[0].image);
   $('#player').append($imageP);
   const $imageC= $('<img>').attr('src',computersArray[0].image);
   $('#computer').append($imageC);
-}
+  gamePlay.push(playersArray[0]);
+  gamePlay.push(computersArray[0]);
+  if (playersArray[0].value>computersArray[0].value){
+    alert('Player Wins Battle!');
+    playersArray.push(gamePlay[0],gamePlay[1]);
+    console.log("players", playersArray);
 
+  } else if (computersArray[0].value>playersArray[0].value){
+    alert("Computer Wins Battle!");
+    computersArray.push(gamePlay[0],gamePlay[1]);
+    console.log("computers" , computersArray);
+  } else if (computersArray[0].value === playersArray[0].value){
+    gamePlay.push(computersArray[1],computersArray[2]);
+    gamePlay.push(playersArray[1],playersArray[2]);
+    const $imageP= $('<img>').attr('src',playersArray[3].image);
+    $('#player').append($imageP);
+    const $imageC= $('<img>').attr('src',computersArray[3].image);
+    $('#computer').append($imageC);
+    gamePlay.push(playersArray[3],computersArray[3]);
+    if (computersArray[3].value>playersArray[3].value){
+      computersArray.push(gamePlay);
+    } else if(computersArray[3].value<playersArray[3].value){
+      playerssArray.push(gamePlay);
+    }
+  }
+}
 
 //++++++++++++++clicks+++++++++++++++++++++++
 
- $deal.on('click', hitCard);
+ $deal.on('click', dealCard);
 
 // //++++++++++++check+++++++++++++++++++++
 
 console.log(playersArray);
 console.log(computersArray);
+console.log(gamePlay);
 
 
 

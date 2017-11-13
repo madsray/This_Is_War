@@ -21,6 +21,7 @@ console.log("hey this is working!")
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
+const $card = $('#playerBack');
 const suits = ["S","H","D","C"];
 // +++++++++++++++++Class+++++++++++++++++++++++====++++++++
 class Card {
@@ -112,11 +113,18 @@ const warArray = [
 	}
 
 }
+//+++++++++++++hitCard+++++++++++++++++++++
+const hitCard = () => {
+
+  const $imageP= $('<img>').attr('src',warArray[0].image);
+  $('#player').append($imageP);
+  console.log('#player')
+}
 
 
 //++++++++++++++clicks+++++++++++++++++++++++
  $deal.on('click', splitArray);
- // $card.on('click', playGame);
+ $card.on('click', hitCard);
 
 // //++++++++++++check+++++++++++++++++++++
 

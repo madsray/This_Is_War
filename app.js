@@ -15,374 +15,119 @@ console.log("hey this is working!")
 //if computer doesn't player wins
 //if player doesn't computer wins
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const $twoC = $('<img>').attr("src","images/2C.png");
-const $twoD = $('<img>').attr("src","images/2D.png");
-const $twoH = $('<img>').attr("src","images/2H.png");
-const $twoS = $('<img>').attr("src","images/2S.png");
-const $threeC = $('<img>').attr("src","images/3C.png");
-const $threeD = $('<img>').attr("src","images/3D.png");
-const $threeS = $('<img>').attr("src","images/3S.png");
-const $threeH = $('<img>').attr("src","images/3H.png");
-const $fourC = $('<img>').attr("src","images/4C.png");
-const $fourD = $('<img>').attr("src","images/4D.png");
-const $fourH = $('<img>').attr("src","images/4H.png");
-const $fourS = $('<img>').attr("src","images/4S.png");
-const $fiveC = $('<img>').attr("src","images/5C.png");
-const $fiveD = $('<img>').attr("src","images/5D.png");
-const $fiveS = $('<img>').attr("src","images/5S.png");
-const $fiveH = $('<img>').attr("src","images/5H.png");
-const $sixC = $('<img>').attr("src","images/6C.png");
-const $sixD = $('<img>').attr("src","images/6D.png");
-const $sixS = $('<img>').attr("src","images/6S.png");
-const $sixH = $('<img>').attr("src","images/6H.png");
-const $sevenC = $('<img>').attr("src","images/7C.png");
-const $sevenD = $('<img>').attr("src","images/7D.png");
-const $sevenS = $('<img>').attr("src","images/S7.png");
-const $sevenH = $('<img>').attr("src","images/7H.png");
-const $eightC = $('<img>').attr("src","images/8C.png");
-const $eightD = $('<img>').attr("src","images/8D.png");
-const $eightS = $('<img>').attr("src","images/8S.png");
-const $eightH = $('<img>').attr("src","images/8H.png");
-const $nineC = $('<img>').attr("src","images/9C.png");
-const $nineD = $('<img>').attr("src","images/9D.png");
-const $nineS = $('<img>').attr("src","images/9S.png");
-const $nineH = $('<img>').attr("src","images/9H.png");
-const $tenC = $('<img>').attr("src","images/10C.png");
-const $tenD = $('<img>').attr("src","images/10D.png");
-const $tenS = $('<img>').attr("src","images/10S.png");
-const $tenH = $('<img>').attr("src","images/10H.png");
-const $jH = $('<img>').attr("src","images/JH.png");
-const $jS = $('<img>').attr("src","images/JS.png");
-const $jD = $('<img>').attr("src","images/JD.png");
-const $jC = $('<img>').attr("src","images/JC.png");
-const $qS = $('<img>').attr("src","images/QS.png");
-const $qD = $('<img>').attr("src","images/QD.png");
-const $qC = $('<img>').attr("src","images/QC.png");
-const $qH = $('<img>').attr("src","images/QH.png");
-const $kD = $('<img>').attr("src","images/KD.png");
-const $kS = $('<img>').attr("src","images/KS.png");
-const $kH = $('<img>').attr("src","images/KH.png");
-const $kC = $('<img>').attr("src","images/KC.png");
-const $aC = $('<img>').attr("src","images/AC.png");
-const $aS = $('<img>').attr("src","images/AS.png");
-const $aH = $('<img>').attr("src","images/AH.png");
-const $aD = $('<img>').attr("src","images/AD.png");
-const deck = [
-  {
-    imageAssign: $twoC,
-    value: 2,
-    name: "twoClub"
-  },
-  {
-    imageAssign: $twoD,
-    value: 2,
-    name: "twoDiambond"
-  },
-  {
-    imageAssign: $twoS,
-    value: 2,
-    name: "twoSpades"
-  },
-  {
-    imageAssign: $twoH,
-    value: 2,
-    name: "twoHeart"
-  },
-  {
-    imageAssign: $threeC,
-    value: 3,
-    name: "threeClub"
-  },
-  {
-    imageAssign: $threeS,
-    value: 3,
-    name: "threeSpade"
-  },
-  {
-    imageAssign: $threeH,
-    value: 3,
-    name: "threeHeart"
-  },
-  {
-    imageAssign: $threeD,
-    value: 3,
-    name: "threeDiamond"
-  },
-  {
-    imageAssign: $fourC,
-    value: 4,
-    name: "fourClub"
-  },
-  {
-    imageAssign: $fourD,
-    value: 4,
-    name: "fourDiamond"
-  },
-  {
-    imageAssign: $fourS,
-    value: 4,
-    name: "fourSpade"
-  },
-  {
-    imageAssign: $fourH,
-    value: 4,
-    name: "fourHeart"
-  },
-  {
-    imageAssign: $fourC,
-    value: 5,
-    name: "fiveClub"
-  },
-  {
-    imageAssign: $fiveS,
-    value: 5,
-    name: "fiveSpade"
-  },
-  {
-    imageAssign: $fiveH,
-    value: 5,
-    name: "fiveHeart"
-  },
-  {
-    imageAssign: $fiveD,
-    value: 5,
-    name: "fiveDiamond"
-  },
-  {
-    imageAssign: $sixC,
-    value: 6,
-    name: "sixClub"
-  },
-  {
-    imageAssign: $sixS,
-    value: 6,
-    name: "sixSpade"
-  },
-  {
-    imageAssign: $sixD,
-    value: 6,
-    name: "sixDiamond"
-  },
-  {
-    imageAssign: $sixH,
-    value: 6,
-    name: "sixHeart"
-  },
-  {
-    imageAssign: $sevenC,
-    value: 7,
-    name: "sevenClub"
-  },
-  {
-    imageAssign: $sevenH,
-    value: 7,
-    name: "sevenHeart"
-  },
-  {
-    imageAssign: $sevenD,
-    value: 7,
-    name: "sevenDiamond"
-  },
-  {
-    imageAssign: $sevenS,
-    value: 7,
-    name: "sevenSpade"
-  },
-  {
-    imageAssign: $eightC,
-    value: 8,
-    name: "eightClub"
-  },
-  {
-    imageAssign: $eightH,
-    value: 8,
-    name: "eightHeart"
-  },
-  {
-    imageAssign: $eightD,
-    value: 8,
-    name: "eightDiamond"
-  },
-  {
-    imageAssign: $eightS,
-    value: 8,
-    name: "eightSpade"
-  },
-  {
-    imageAssign: $nineC,
-    value: 9,
-    name: "nineClub"
-  },
-  {
-    imageAssign: $nineS,
-    value: 9,
-    name: "nineSpade"
-  },
-  {
-    imageAssign: $nineD,
-    value: 9,
-    name: "nineDiamond"
-  },
-  {
-    imageAssign: $nineH,
-    value: 9,
-    name: "nineHeart"
-  },
-  {
-    imageAssign: $tenC,
-    value: 10,
-    name: "tenClub"
-  },
-  {
-    imageAssign: $tenS,
-    value: 20,
-    name: "tenSpade"
-  },
-  {
-    imageAssign: $tenD,
-    value: 10,
-    name: "tenDiamond"
-  },
-  {
-    imageAssign: $tenH,
-    value: 10,
-    name: "tenHeart"
-    },
-    {
-      imageAssign: $jC,
-      value: 11,
-      name: "jackClub"
-    },
-    {
-      imageAssign: $jS,
-      value: 11,
-      name: "jackSpade"
-    },
-    {
-      imageAssign: $jH,
-      value: 11,
-      name: "jackHeart"
-    },
-    {
-      imageAssign: $jD,
-      value: 11,
-      name: "jackDiamond"
-    },
-    {
-      imageAssign: $qC,
-      value: 12,
-      name: "queenClub"
-    },
-    {
-      imageAssign: $qS,
-      value: 12,
-      name: "queenSpade"
-    },
-    {
-      imageAssign: $qH,
-      value: 12,
-      name: "queenHeart"
-    },
-    {
-      imageAssign: $qD,
-      value: 12,
-      name: "queenDiamond"
-    },
-    {
-      imageAssign: $kC,
-      value: 13,
-      name: "kingClub"
-    },
-    {
-      imageAssign: $kS,
-      value: 13,
-      name: "kingSpade"
-    },
-    {
-      imageAssign: $kD,
-      value: 13,
-      name: "kingDiamond"
-    },
-    {
-      imageAssign: $kH,
-      value: 13,
-      name: "kingHeart"
-    },
-    {
-      imageAssign: $aS,
-      value: 14,
-      name: "aceSpade"
-    },
-    {
-      imageAssign: $aH,
-      value: 14,
-      name: "aceHeart"
-    },
-    {
-      imageAssign: $aD,
-      value: 14,
-      name: "aceDiamond"
-    },
-    {
-      imageAssign: $aC,
-      value: 14,
-      name: "aceClub"
-    }
-]
-const playersArray = [];
-const computersArray = [];
-const $deal = $('#deal');
-const $card = $('#playerBack');
-const $showCardP = $('#player');
-const $showCardC = $('#computer');
+
+// +++++++++++++++++++set variable+++++++++++++++++++++++++++++
+// const cardDeck = [];
+// const playersArray = [];
+// const computersArray = [];
+// const player = playersArray[0];
+// const computer = computersArray[0];
+// const $deal = $('#deal');
+class Card {
+  constructor(suit,face){
+    this.suit = suit[Math.floor(Math.random()*4)];
+    this.face = face[Math.floor(Math.random()*13)];
+    this.image = 'images/' + this.face + '_of_' + this.suit + '.png';
+    this.value = this.face;
+  }
+}
+const $card1 = new Card();
+const $card2 = new Card();
+const $card3 = new Card();
+const $card4 = new Card();
+const $card5 = new Card();
+const $card6 = new Card();
+const $card7 = new Card();
+const $card8 = new Card();
+const $card9 = new Card();
+const $card10 = new Card();
+const $card11 = new Card();
+const $card12 = new Card();
+const $card13 = new Card();
+const $card14 = new Card();
+const $card15 = new Card();
+const $card16 = new Card();
+const $card17 = new Card();
+const $card18 = new Card();
+const $card19 = new Card();
+const $card20 = new Card();
+const $card21 = new Card();
+const $card22 = new Card();
+const $card23 = new Card();
+const $card24 = new Card();
+const $card25 = new Card();
+const $card26 = new Card();
+const $card27 = new Card();
+const $card28 = new Card();
+const $card29 = new Card();
+const $card30 = new Card();
+const $card31 = new Card();
+const $card32 = new Card();
+const $card33 = new Card();
+const $card34 = new Card();
+const $card35 = new Card();
+const $card36 = new Card();
+const $card37 = new Card();
+const $card38 = new Card();
+const $card39 = new Card();
+const $card40 = new Card();
+const $card41 = new Card();
+const $card42 = new Card();
+const $card43 = new Card();
+const $card44 = new Card();
+const $card45 = new Card();
+const $card46 = new Card();
+const $card47 = new Card();
+const $card48 = new Card();
+const $card49 = new Card();
+const $card50 = new Card();
+const $card51 = new Card();
+const $card52 = new Card();
+console.log($card47);
+// const warArray = [
+//
+// ];
+
+
 //++++++++++++Dealing Cards+++++++++++++++++++++++++
 //https://github.com/MisterTeeRoland/war/blob/master/game.js
- const fillArray=() => {
+//  const splitArray=() => {
+// 	splitCards(cardDeck);
+// }
 
-	shuffle(deck);
-	splitCards(deck);
-}
 
-//function to shuffle deck of cards.
-const shuffle= (deck)=> {
-    for(var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
-    return deck;
-}
 
 //function to split shuffled deck in half
- const splitCards = (deck) => {
-	let i = 0;
+//  const splitCards = (cardDeck) => {
+// 	let i = 0;
+//
+// 	//push a card to each "hand" array
+// 	while (i != cardDeck.length) {
+// 		playersArray.push(cardDeck[i]);
+// 		computersArray.push(cardDeck[(i+1)]);
+// 		i+=2;
+// 	}
+//
+// }
+// +++++++++++++++++Class+++++++++++++++++++++++====++++++++
 
-	//push a card to each "hand" array
-	while (i != deck.length) {
-		playersArray.push(deck[i]);
-		computersArray.push(deck[(i+1)]);
-		i+=2;
-	}
 
-}
+
 // ++++++++++++++++game play+++++++++++++++++++++++++++++
-const playGame = () => {
-  for (let i=0; i<=computersArray.length; i++){
-  $($showCardC).append(computersArray[0]);
-}
-  for (let i=0; i<=playersArray.length; i++){
-    $($showCardP).append(playersArray[0].imageAssign);
 
-  }
-
-}
 //++++++++++++++clicks+++++++++++++++++++++++
-$deal.on('click', fillArray);
-$card.on('click', playGame);
-
-
-
-
-//++++++++++++check+++++++++++++++++++++
-// console.log(fillArray);
-console.log(playersArray);
-console.log(computersArray);
+// $deal.on('click', fillArray);
+// // $card.on('click', playGame);
+//
+// // for ()
+//
+//
+// //++++++++++++check+++++++++++++++++++++
+// // console.log(fillArray);
+//
+//
+// console.log(playersArray);
+// console.log(computersArray);
 
 
 

@@ -125,7 +125,6 @@ splitArray();
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
 $('.currentcard').remove();
-
   const $imageP=
    $('<img>').attr('src',playersArray[0].image).addClass("currentcard");
   $('#player').append($imageP);
@@ -172,7 +171,10 @@ $('.currentcard').remove();
 //++++++++++++++clicks+++++++++++++++++++++++
 
  $deal.on('click', dealCard);
-
+$deal.on('click', () => {
+  $('#pScore').text("Player's Score: " + playersArray.length);
+  $('#cScore').text("Computer's Score: " + computersArray.length);
+})
 // //++++++++++++check+++++++++++++++++++++
 
 // console.log(playersArray);

@@ -17,13 +17,12 @@ console.log("hey this is working!")
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // +++++++++++++++++++set variable+++++++++++++++++++++++++++++
-// const cardDeck = [];
-// const playersArray = [];
-// const computersArray = [];
-// const player = playersArray[0];
-// const computer = computersArray[0];
-// const $deal = $('#deal');
+
+const playersArray = [];
+const computersArray = [];
+const $deal = $('#deal');
 const suits = ["S","H","D","C"];
+// +++++++++++++++++Class+++++++++++++++++++++++====++++++++
 class Card {
   constructor(suit,face){
     this.suit = suits[Math.floor(Math.random()*4)];
@@ -84,51 +83,45 @@ const card49 = new Card();
 const card50 = new Card();
 const card51 = new Card();
 const card52 = new Card();
-console.log(card47);
-// const warArray = [
-//
-// ];
+// console.log(card47);
+//+++++++++++++++++++++create war array+++++++++++++++++++==========
+const warArray = [
+  card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20, card21, card22, card23, card24, card25, card26, card27, card28, card29, card30, card31, card32, card33, card34, card35, card36, card37, card38, card39, card40, card41, card42, card43, card44, card45, card46, card47, card48, card49, card50, card51, card52
+];
+// console.log(warArray);
+// console.log(warArray[51].image);
 
 
 //++++++++++++Dealing Cards+++++++++++++++++++++++++
-//https://github.com/MisterTeeRoland/war/blob/master/game.js
-//  const splitArray=() => {
-// 	splitCards(cardDeck);
-// }
+// https://github.com/MisterTeeRoland/war/blob/master/game.js
+ const splitArray=() => {
+	splitCards(warArray);
+}
 
 
 
-//function to split shuffled deck in half
-//  const splitCards = (cardDeck) => {
-// 	let i = 0;
-//
-// 	//push a card to each "hand" array
-// 	while (i != cardDeck.length) {
-// 		playersArray.push(cardDeck[i]);
-// 		computersArray.push(cardDeck[(i+1)]);
-// 		i+=2;
-// 	}
-//
-// }
-// +++++++++++++++++Class+++++++++++++++++++++++====++++++++
+// function to split shuffled deck in half
+ const splitCards = (warArray) => {
+	let i = 0;
 
+	//push a card to each "hand" array
+	while (i != warArray.length) {
+		playersArray.push(warArray[i]);
+		computersArray.push(warArray[(i+1)]);
+		i+=2;
+	}
 
+}
 
-// ++++++++++++++++game play+++++++++++++++++++++++++++++
 
 //++++++++++++++clicks+++++++++++++++++++++++
-// $deal.on('click', fillArray);
-// // $card.on('click', playGame);
-//
-// // for ()
-//
-//
+ $deal.on('click', splitArray);
+ // $card.on('click', playGame);
+
 // //++++++++++++check+++++++++++++++++++++
-// // console.log(fillArray);
-//
-//
-// console.log(playersArray);
-// console.log(computersArray);
+
+console.log(playersArray);
+console.log(computersArray);
 
 
 

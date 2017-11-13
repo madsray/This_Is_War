@@ -23,11 +23,12 @@ const computersArray = [];
 const $deal = $('#deal');
 const $card = $('#playerBack');
 const suits = ["S","H","D","C"];
+const faces = ['2','3','4','5','6','7','8','9','10','11','12','13','14'];
 // +++++++++++++++++Class+++++++++++++++++++++++====++++++++
 class Card {
   constructor(suit,face){
     this.suit = suits[Math.floor(Math.random()*4)];
-    this.face = Math.floor(Math.random()*13);
+    this.face = faces[Math.floor(Math.random()*13)];
     this.image = 'images/' + this.face + '_of_' + this.suit + '.png';
     this.value = this.face;
   }

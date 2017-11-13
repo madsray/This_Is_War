@@ -125,8 +125,8 @@ splitArray();
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
 $('.currentcard').remove();
+
   const $imageP=
-  
    $('<img>').attr('src',playersArray[0].image).addClass("currentcard");
   $('#player').append($imageP);
   const $imageC= $('<img>').attr('src',computersArray[0].image).addClass("currentcard");
@@ -163,7 +163,7 @@ $('.currentcard').remove();
     if (computersArray[3].value>playersArray[3].value){
       computersArray.push(gamePlay);
     } else if(computersArray[3].value<playersArray[3].value){
-      playerssArray.push(gamePlay);
+      playersArray.push(gamePlay);
     }
   }
 }

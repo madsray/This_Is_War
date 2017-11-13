@@ -23,7 +23,7 @@ const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
 const suits = ["S","H","D","C"];
-const faces = ['2','3','4','5','6','7','8','9','10','11','12','13','14'];
+const faces = [2,3,4,5,6,7,8,9,10,11,12,13,14];
 // +++++++++++++++++Class+++++++++++++++++++++++====++++++++
 class Card {
   constructor(suit,face){

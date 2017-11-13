@@ -17,6 +17,7 @@ console.log("hey this is working!")
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // +++++++++++++++++++set variable+++++++++++++++++++++++++++++
+
 const gamePlay = [];
 const playersArray = [];
 const computersArray = [];
@@ -114,24 +115,43 @@ const warArray = [
 
 }
 splitArray();
+// ++++++++++++++++++Remove Card+++++++++++++++++++++++++
+
+// const removeCard = ($imageP) => {
+//   computersArray.splice(computersArray[0],1);
+//   playersArray.splice(playersArray[0],1);
+//   // ($imageP).remove();
+// }
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
-
-  const $imageP= $('<img>').attr('src',playersArray[0].image);
+$('.currentcard').remove();
+  const $imageP=
+  
+   $('<img>').attr('src',playersArray[0].image).addClass("currentcard");
   $('#player').append($imageP);
-  const $imageC= $('<img>').attr('src',computersArray[0].image);
+  const $imageC= $('<img>').attr('src',computersArray[0].image).addClass("currentcard");
   $('#computer').append($imageC);
   gamePlay.push(playersArray[0]);
   gamePlay.push(computersArray[0]);
   if (playersArray[0].value>computersArray[0].value){
     alert('Player Wins Battle!');
     playersArray.push(gamePlay[0],gamePlay[1]);
-    console.log("players", playersArray);
-
+    console.log("computersB" , computersArray);
+    console.log("playersB", playersArray);
+    computersArray.splice(computersArray[0],1);
+    playersArray.splice(playersArray[0],1);
+    console.log("computersA" , computersArray);
+    console.log("playersA", playersArray);
+    // removeCard();
   } else if (computersArray[0].value>playersArray[0].value){
     alert("Computer Wins Battle!");
     computersArray.push(gamePlay[0],gamePlay[1]);
-    console.log("computers" , computersArray);
+    console.log("computersB" , computersArray);
+    console.log("playersB", playersArray);
+    computersArray.splice(computersArray[0],1);
+    playersArray.splice(playersArray[0],1);
+    console.log("computersA" , computersArray);
+    console.log("playersA", playersArray);
   } else if (computersArray[0].value === playersArray[0].value){
     gamePlay.push(computersArray[1],computersArray[2]);
     gamePlay.push(playersArray[1],playersArray[2]);
@@ -148,15 +168,16 @@ const dealCard = () => {
   }
 }
 
+
 //++++++++++++++clicks+++++++++++++++++++++++
 
  $deal.on('click', dealCard);
 
 // //++++++++++++check+++++++++++++++++++++
 
-console.log(playersArray);
-console.log(computersArray);
-console.log(gamePlay);
+// console.log(playersArray);
+// console.log(computersArray);
+// console.log(gamePlay);
 
 
 

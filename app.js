@@ -152,18 +152,20 @@ $('.currentcard').remove();
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
   } else if (computersArray[0].value === playersArray[0].value){
-    gamePlay.push(computersArray[1],computersArray[2]);
-    gamePlay.push(playersArray[1],playersArray[2]);
-    const $imageP= $('<img>').attr('src',playersArray[3].image);
-    $('#player').append($imageP);
-    const $imageC= $('<img>').attr('src',computersArray[3].image);
-    $('#computer').append($imageC);
-    gamePlay.push(playersArray[3],computersArray[3]);
-    if (computersArray[3].value>playersArray[3].value){
-      computersArray.push(gamePlay);
-    } else if(computersArray[3].value<playersArray[3].value){
-      playersArray.push(gamePlay);
-    }
+    alert("tie");
+    //fix this++++++++++++++++ gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
+    // gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
+    // $('.currentcard').remove();
+    // const $imageP= $('<img>').attr('src',playersArray[3].image);
+    // $('#player').append($imageP);
+    // const $imageC= $('<img>').attr('src',computersArray[3].image);
+    // $('#computer').append($imageC);
+    // gamePlay.push(playersArray[3],computersArray[3]);
+    // if (computersArray[3].value>playersArray[3].value){
+    //   computersArray.push(gamePlay);
+    // } else if(computersArray[3].value<playersArray[3].value){
+    //   playersArray.push(gamePlay);
+    // }
   }
 }
 

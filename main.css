@@ -54,6 +54,17 @@ p {
   font-size: 25px;
   font-family: "arial", sans-serif;
 }
-#deal:hover, #playerBack:hover{
+.tiebattle {
+  padding-top:40px;
+  padding-left: 40px;
+  text-decoration: none;
+  color: white;
+  background-color: #57470D;
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  font-family: "arial", sans-serif;
+}
+#deal:hover, .tiebattle:hover{
   cursor: pointer;
 }

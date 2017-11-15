@@ -1,6 +1,5 @@
 $(() =>{
-
-console.log("hey this is working!")
+// console.log("hey this is working!")
 //++++++++++++++++++++++++++++++++++++++++++++++++
 //create deal button to be click able
 //deal button splits cards randomly between computer array and Player array
@@ -17,8 +16,7 @@ console.log("hey this is working!")
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // +++++++++++++++++++set variable+++++++++++++++++++++++++++++
-
-let gamePlay = [];
+const gamePlay = [];
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
@@ -36,22 +34,18 @@ const createDeck = () => {
   }
 }
 // ++++++++++++++++Shuffle Function++++++++++++++++++++++++++++++++++++
-// https://stackoverflow.com/questions/15585216/how-to-randomly-generate-numbers-without-repetition-in-javascript
+//refernced this to create the shuffle without dupliates https://stackoverflow.com/questions/15585216/how-to-randomly-generate-numbers-without-repetition-in-javascript
 function shuffle() {
     for (let i = warArray.length - 1; i > 0; i--) {
         const shuffle = Math.floor(Math.random() * (i + 1));
         [warArray[i], warArray[shuffle]] = [warArray[shuffle], warArray[i]];
     }
 }
-
-
 //++++++++++++Dealing Cards+++++++++++++++++++++++++
 // https://github.com/MisterTeeRoland/war/blob/master/game.js
  const splitArray=() => {
 	splitCards(warArray);
 }
-
-
 
 // function to split shuffled deck in half
  const splitCards = (warArray) => {
@@ -65,20 +59,44 @@ function shuffle() {
 	}
 
 }
-
+//+++++++++++++Start Game+++++++++++++++++
 const startGame = () => {
 createDeck();
 shuffle();
 splitArray();
 }
 startGame();
+//+++++++++++++++tie function++++++++++++++++++++++++++++
+const tie = () => {
+  $(".tiebattle").remove();
+gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
+gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
+$('.currentcard').remove();
+const $imageP= $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
+$('#player').append($imageP);
+const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
+$('#computer').append($imageC);
+gamePlay.push(playersArray[0],computersArray[0]);
+console.log("after 3 is pushed" + gamePlay);
+if (computersArray[0].Value>playersArray[0].Value){
+  computersArray.push(gamePlay);
+  computersArray.splice(computersArray[0],1);
+  playersArray.splice(playersArray[0],1);
+} else if(computersArray[0].Value<playersArray[0].Value){
+  playersArray.push(gamePlay);
+  computersArray.splice(computersArray[0],1);
+  playersArray.splice(playersArray[0],1);
+} else if (computersArray[0].Value===playersArray[0].Value){
 
+
+}
+}
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
 $('.currentcard').remove();
+
 for(let i = 0; i< gamePlay.length;i++){
 gamePlay.splice(gamePlay[i]);
-
 }
   const $imageP=
    $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
@@ -90,74 +108,37 @@ gamePlay.splice(gamePlay[i]);
   if (playersArray[0].Value>computersArray[0].Value){
     alert('Player Wins Battle!');
     playersArray.push(gamePlay[0],gamePlay[1]);
-    console.log("computersB" , computersArray);
-    console.log("playersB", playersArray);
+    // console.log("computersB" , computersArray);
+    // console.log("playersB", playersArray);
     computersArray.splice(computersArray[0],1);
     playersArray.splice(playersArray[0],1);
-
-    console.log("computersA" , computersArray);
-    console.log("playersA", playersArray);
+    // console.log("computersA" , computersArray);
+    // console.log("playersA", playersArray);
     // console.log(gamePlay);
-    // removeCard();
   } else if (computersArray[0].Value>playersArray[0].Value){
     alert("Computer Wins Battle!");
     computersArray.push(gamePlay[0],gamePlay[1]);
-    console.log("computersB" , computersArray);
-    console.log("playersB", playersArray);
+    // console.log("computersB" , computersArray);
+    // console.log("playersB", playersArray);
     computersArray.splice(computersArray[0],1);
     playersArray.splice(playersArray[0],1);
-
-    console.log("computersA" , computersArray);
-    console.log("playersA", playersArray);
+    // console.log("computersA" , computersArray);
+    // console.log("playersA", playersArray);
     // console.log(gamePlay);
   } else if (computersArray[0].Value === playersArray[0].Value){
     alert("tie");
-    //Why does it not show the tie cards...... is there a way to pause it
-    gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
-    gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
-    $('.currentcard').remove();
-    console.log(playersArray);
-    console.log(computersArray);
-    console.log(gamePlay);
-    const $imageP= $('<img>').attr('src',playersArray[3].Image);
-    $('#player').append($imageP);
-    const $imageC= $('<img>').attr('src',computersArray[3].Image);
-    $('#computer').append($imageC);
-    gamePlay.push(playersArray[3],computersArray[3]);
-    if (computersArray[3].value>playersArray[3].value){
-      computersArray.push(gamePlay);
-      computersArray.splice(computersArray[0],1);
-      playersArray.splice(playersArray[0],1);
-    } else if(computersArray[3].value<playersArray[3].value){
-      playersArray.push(gamePlay);
-      computersArray.splice(computersArray[0],1);
-      playersArray.splice(playersArray[0],1);
-    }
+    const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
+    $('body').append($tie);
+    $tie.on('click', tie);
   }
 }
-
-
 //++++++++++++++clicks+++++++++++++++++++++++
-
 $deal.on('click', dealCard);
 $deal.on('click', () => {
   $('#pScore').text("Player's Score: " + playersArray.length);
   $('#cScore').text("Computer's Score: " + computersArray.length);
 })
 //++++++++++++check+++++++++++++++++++++
-
 // console.log(playersArray);
 // console.log(computersArray);
-
-
-
-
-
-
-
-
-
-
-
-
 });

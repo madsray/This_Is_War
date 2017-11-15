@@ -76,8 +76,10 @@ startGame();
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
 $('.currentcard').remove();
-gamePlay.splice(gamePlay[0]);
-gamePlay.splice(gamePlay[1]);
+for(let i = 0; i< gamePlay.length;i++){
+gamePlay.splice(gamePlay[i]);
+
+}
   const $imageP=
    $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
   $('#player').append($imageP);

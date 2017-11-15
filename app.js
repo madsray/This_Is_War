@@ -18,7 +18,7 @@ console.log("hey this is working!")
 
 // +++++++++++++++++++set variable+++++++++++++++++++++++++++++
 
-const gamePlay = [];
+let gamePlay = [];
 const playersArray = [];
 const computersArray = [];
 const $deal = $('#deal');
@@ -26,7 +26,7 @@ const suits = ["S","H","D","C"];
 const faces = [2,3,4,5,6,7,8,9,10,11,12,13,14];
 const deckLength = 52;
 const warArray = [];
-
+// +++++++++++++++++++++Create Deck+++++++++++++++++++++++++++++++++
 const createDeck = () => {
   for(let i = 0; i<suits.length; i++){
     for (let e= 0; e<faces.length;e++){
@@ -35,7 +35,8 @@ const createDeck = () => {
     }
   }
 }
-
+// ++++++++++++++++Shuffle Function++++++++++++++++++++++++++++++++++++
+// https://stackoverflow.com/questions/15585216/how-to-randomly-generate-numbers-without-repetition-in-javascript
 function shuffle() {
     for (let i = warArray.length - 1; i > 0; i--) {
         const shuffle = Math.floor(Math.random() * (i + 1));
@@ -75,6 +76,8 @@ startGame();
 //+++++++++++++hitCard+++++++++++++++++++++
 const dealCard = () => {
 $('.currentcard').remove();
+gamePlay.splice(gamePlay[0]);
+gamePlay.splice(gamePlay[1]);
   const $imageP=
    $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
   $('#player').append($imageP);
@@ -89,8 +92,10 @@ $('.currentcard').remove();
     console.log("playersB", playersArray);
     computersArray.splice(computersArray[0],1);
     playersArray.splice(playersArray[0],1);
+
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
+    console.log(gamePlay);
     // removeCard();
   } else if (computersArray[0].Value>playersArray[0].Value){
     alert("Computer Wins Battle!");
@@ -99,38 +104,44 @@ $('.currentcard').remove();
     console.log("playersB", playersArray);
     computersArray.splice(computersArray[0],1);
     playersArray.splice(playersArray[0],1);
+
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
+    console.log(gamePlay);
   } else if (computersArray[0].Value === playersArray[0].Value){
-    alert("tie");
-    //fix this++++++++++++++++ gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
-    // gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
-    // $('.currentcard').remove();
+    // alert("tie");
+    // fix this++++++++++++++++
+    gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
+    gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
+    console.log(playersArray);
+    console.log(computersArray);
+    console.log(gamePlay);
+
     // const $imageP= $('<img>').attr('src',playersArray[3].image);
     // $('#player').append($imageP);
     // const $imageC= $('<img>').attr('src',computersArray[3].image);
     // $('#computer').append($imageC);
     // gamePlay.push(playersArray[3],computersArray[3]);
-    // if (computersArray[3].value>playersArray[3].value){
-    //   computersArray.push(gamePlay);
-    // } else if(computersArray[3].value<playersArray[3].value){
-    //   playersArray.push(gamePlay);
-    // }
-  }
+  //   if (computersArray[3].value>playersArray[3].value){
+  //     computersArray.push(gamePlay);
+  //   } else if(computersArray[3].value<playersArray[3].value){
+  //     playersArray.push(gamePlay);
+  //   }
+  // }
 }
 
-
+}
 //++++++++++++++clicks+++++++++++++++++++++++
 
- $deal.on('click', dealCard);
+$deal.on('click', dealCard);
 $deal.on('click', () => {
   $('#pScore').text("Player's Score: " + playersArray.length);
   $('#cScore').text("Computer's Score: " + computersArray.length);
 })
 //++++++++++++check+++++++++++++++++++++
 
-console.log(playersArray);
-console.log(computersArray);
+// console.log(playersArray);
+// console.log(computersArray);
 
 
 

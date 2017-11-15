@@ -97,7 +97,7 @@ gamePlay.splice(gamePlay[i]);
 
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
-    console.log(gamePlay);
+    // console.log(gamePlay);
     // removeCard();
   } else if (computersArray[0].Value>playersArray[0].Value){
     alert("Computer Wins Battle!");
@@ -109,30 +109,34 @@ gamePlay.splice(gamePlay[i]);
 
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
-    console.log(gamePlay);
+    // console.log(gamePlay);
   } else if (computersArray[0].Value === playersArray[0].Value){
-    // alert("tie");
-    // fix this++++++++++++++++
+    alert("tie");
+    //Why does it not show the tie cards...... is there a way to pause it
     gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
     gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
+    $('.currentcard').remove();
     console.log(playersArray);
     console.log(computersArray);
     console.log(gamePlay);
-
-    // const $imageP= $('<img>').attr('src',playersArray[3].image);
-    // $('#player').append($imageP);
-    // const $imageC= $('<img>').attr('src',computersArray[3].image);
-    // $('#computer').append($imageC);
-    // gamePlay.push(playersArray[3],computersArray[3]);
-  //   if (computersArray[3].value>playersArray[3].value){
-  //     computersArray.push(gamePlay);
-  //   } else if(computersArray[3].value<playersArray[3].value){
-  //     playersArray.push(gamePlay);
-  //   }
-  // }
+    const $imageP= $('<img>').attr('src',playersArray[3].Image);
+    $('#player').append($imageP);
+    const $imageC= $('<img>').attr('src',computersArray[3].Image);
+    $('#computer').append($imageC);
+    gamePlay.push(playersArray[3],computersArray[3]);
+    if (computersArray[3].value>playersArray[3].value){
+      computersArray.push(gamePlay);
+      computersArray.splice(computersArray[0],1);
+      playersArray.splice(playersArray[0],1);
+    } else if(computersArray[3].value<playersArray[3].value){
+      playersArray.push(gamePlay);
+      computersArray.splice(computersArray[0],1);
+      playersArray.splice(playersArray[0],1);
+    }
+  }
 }
 
-}
+
 //++++++++++++++clicks+++++++++++++++++++++++
 
 $deal.on('click', dealCard);

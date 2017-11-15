@@ -76,13 +76,13 @@ startGame();
 const dealCard = () => {
 $('.currentcard').remove();
   const $imageP=
-   $('<img>').attr('src',playersArray[0].image).addClass("currentcard");
+   $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
   $('#player').append($imageP);
-  const $imageC= $('<img>').attr('src',computersArray[0].image).addClass("currentcard");
+  const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
   $('#computer').append($imageC);
   gamePlay.push(playersArray[0]);
   gamePlay.push(computersArray[0]);
-  if (playersArray[0].value>computersArray[0].value){
+  if (playersArray[0].Value>computersArray[0].Value){
     alert('Player Wins Battle!');
     playersArray.push(gamePlay[0],gamePlay[1]);
     console.log("computersB" , computersArray);
@@ -92,7 +92,7 @@ $('.currentcard').remove();
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
     // removeCard();
-  } else if (computersArray[0].value>playersArray[0].value){
+  } else if (computersArray[0].Value>playersArray[0].Value){
     alert("Computer Wins Battle!");
     computersArray.push(gamePlay[0],gamePlay[1]);
     console.log("computersB" , computersArray);
@@ -101,7 +101,7 @@ $('.currentcard').remove();
     playersArray.splice(playersArray[0],1);
     console.log("computersA" , computersArray);
     console.log("playersA", playersArray);
-  } else if (computersArray[0].value === playersArray[0].value){
+  } else if (computersArray[0].Value === playersArray[0].Value){
     alert("tie");
     //fix this++++++++++++++++ gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
     // gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
@@ -131,7 +131,7 @@ $deal.on('click', () => {
 
 console.log(playersArray);
 console.log(computersArray);
-// console.log(gamePlay);
+
 
 
 

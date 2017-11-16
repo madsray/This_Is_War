@@ -20,6 +20,7 @@ let gamePlayP = [];
 let gamePlayC = [];
 const playersArray = [];
 const computersArray = [];
+const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
 const $deal = $('#deal');
 const suits = ["S","H","D","C"];
 const faces = [2,3,4,5,6,7,8,9,10,11,12,13,14];
@@ -93,88 +94,106 @@ startGame();
 // ++++++++++++++++++++tie Check++++++++++++++++++++++
 const tieCheck = () => {
 
-  $(".tiebattle").remove();
-  $('.currentcard').remove();
+  // $(".tiebattle").remove();
+  // $('.currentcard').remove();
   if (playersArray.length<5 || computersArray.length<5){
     if (playersArray.length<5){
       console.log(playersArray.length);
-      for (let i = 0; i<playersArray.length-1;i++){
-        gamePlay=computersArray.shift();
-        gamePlay=playersArray.shift();
+      for (let i = playersArray.length-1; i<playersArray.length;i++){
+        // gamePlayC=computersArray.shift();
+        // gamePlayP=playersArray.shift();
+        gamePlayC.push(computersArray[i]);
+        gamePlayP.push(playersArray[i]);
         // tie();
       }
-      tie();
+      checkCards2();
     } else if (computersArray.length<5){
       console.log(playersArray.length);
-      for(let e = 0; e<computersArray.length-1;e++){
-        gamePlay=playersArray.shift();
-        gamePlay=computersArray.shift();
+      for(let e = computersArray.length-1;e<computersArray.length;e++){
+        gamePlayC.push(computersArray[e]);
+        gamePlayP.push(playersArray[e]);
 
 
         // tie();
       }
-      tie();
+      checkCards2();
     }
   } else {
-    for (let i = 0; i<=3; i++){
-      gamePlay = playersArray.shift();
-      gamePlay = computersArray.shift();
-    }
 
-    tie();
+    for (let i = 0; i<3; i++){
+
+      gamePlayP.push(playersArray[i]);
+      gamePlayC.push(computersArray[i]);
+
+    }
+      playersArray.shift();
+      playersArray.shift();
+      playersArray.shift();
+      computersArray.shift();
+      computersArray.shift();
+      computersArray.shift();
+      const $imageP=
+        $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
+      $('#player').append($imageP);
+      const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
+      $('#computer').append($imageC);
+    checkCards2();
   }
 }
 //+++++++++++++++tie function++++++++++++++++++++++++++++
-const tie = () => {
-  //removes tie battle button
-  // $(".tiebattle").remove();
-//   //pushes tie cards if player and computer have more than five cards
-// gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
-// gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
-//removes current tie cards
-// $('.currentcard').remove();
-//the fourth card is then flipped over to compare
-const $imageP= $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
-$('#player').append($imageP);
-const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
-$('#computer').append($imageC);
-//this pushes the fourth card into the game play array
-// gamePlay.push(playersArray[0],computersArray[0]);
-compareWar(playersArray,computersArray);
-}
+// const tie = () => {
+//   //removes tie battle button
+//   // $(".tiebattle").remove();
+// //   //pushes tie cards if player and computer have more than five cards
+// // gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
+// // gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
+// //removes current tie cards
+// // $('.currentcard').remove();
+// //the fourth card is then flipped over to compare
+// const $imageP= $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
+// $('#player').append($imageP);
+// const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
+// $('#computer').append($imageC);
+// //this pushes the fourth card into the game play array
+// // gamePlay.push(playersArray[0],computersArray[0]);
+// gamePlayP = playersArray.shift();
+// gamePlayC = computersArray.shift();
+//
+// compareWar();
+// }
 
 
 
-const compareWar = (playersArray,computersArray) => {
-
-if (computersArray[0].Value>playersArray[0].Value){
-  for (let i = 0; i<gamePlay.length;i++){
-  computersArray = gamePlay.shift();
-  gamePlay = []
-
-};
-
-  // computersArray.splice(computersArray[0],1);
-  // playersArray.splice(playersArray[0],1);
-
-} else if(computersArray[0].Value<playersArray[0].Value){
-  for (let i = 0; i<gamePlay.length;i++){
-  playersArray = gamePlay.shift();
-  gamePlay = [];
-}
-
-  // computersArray.splice(computersArray[0],1);
-  // playersArray.splice(playersArray[0],1);
-  // console.log("Player after player wins tie:" + playersArray)
-  // console.log("computer after player looses tie:" + computersArray)
-} else if (computersArray[0].Value===playersArray[0].Value){
-  computersArray.splice(computersArray[0],1);
-  playersArray.splice(playersArray[0],1);
-  tieCheck();
-}
-}
+// const compareWar = () => {
+//
+// if (computersArray[0].Value>playersArray[0].Value){
+//
+// gamePlay = []
+// }
+//
+//   // computersArray.splice(computersArray[0],1);
+//   // playersArray.splice(playersArray[0],1);
+//
+// } else if(computersArray[0].Value<playersArray[0].Value){
+//   for (let i = 0; i<gamePlay.length;i++){
+//   playersArray = gamePlay.shift();
+//   gamePlay = [];
+// }
+//
+//   // computersArray.splice(computersArray[0],1);
+//   // playersArray.splice(playersArray[0],1);
+//   // console.log("Player after player wins tie:" + playersArray)
+//   // console.log("computer after player looses tie:" + computersArray)
+// } else if (computersArray[0].Value===playersArray[0].Value){
+//   computersArray.splice(computersArray[0],1);
+//   playersArray.splice(playersArray[0],1);
+//   tieCheck();
+// }
+// }
 //+++++++++++++hitCard+++++++++++++++++++++
     const dealCard = () => {
+      $tie.hide();
+      $deal.show();
       $('.currentcard').remove();
 
       const $imageP=
@@ -182,38 +201,87 @@ if (computersArray[0].Value>playersArray[0].Value){
       $('#player').append($imageP);
       const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
       $('#computer').append($imageC);
-      gamePlayP = playersArray.shift();
-      gamePlayC = computersArray.shift();
-      console.log(gamePlayP);
-      console.log(gamePlayC);
+      gamePlayP.push(playersArray[0]);
+      gamePlayC.push(computersArray[0]);
 
-  if (gamePlayP.Value>gamePlayC.Value){
+      playersArray.shift();
+      computersArray.shift();
+      console.log(gamePlayP[0].Value);
+      console.log(gamePlayC[0].Value);
+      checkCards();
+    }
+const checkCards = () => {
+
+
+  if (gamePlayP[0].Value>gamePlayC[0].Value){
       alert('Player Wins Battle!');
 
         playersArray.push(gamePlayP[0]);
         playersArray.push(gamePlayC[0]);
 
+
+        gamePlayP = [];
+        gamePlayC = [];
+
+  } else if (gamePlayP[0].Value<gamePlayC[0].Value){
+    alert("Computer Wins Battle!");
+    computersArray.push(gamePlayC[0]);
+    computersArray.push(gamePlayP[0]);
+
     gamePlayP = [];
     gamePlayC = [];
 
-  } else if (gamePlayP.Value<gamePlayC.Value){
-    alert("Computer Wins Battle!");
-
-    computersArray.push(gamePlayC[0]);
-
-  computersArray.push(gamePlayP[0]);
-
-  gamePlayP = [];
-  gamePlayC = [];
-
-  } else if (computersArray[0].Value === playersArray[0].Value){
-    alert("tie");
+} else if (gamePlayP[0].Value === gamePlayC[0].Value){
+    // alert("tie");
+    // $deal.hide();
     const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
     $('body').append($tie);
+    // $tie.on('click', tieCheck);
+    $tie.on('click', tieCheck);
+  }
+}
+const checkCards2 = () => {
+
+
+  if (gamePlayP[1].Value>gamePlayC[1].Value){
+      alert('Player Wins Battle!');
+      for (let i = 0; i<gamePlayC.length;i++){
+
+        playersArray.push(gamePlayC[i]);
+      }
+      for (let i = 0; i<gamePlayP.length; i++){
+
+        playersArray.push(gamePlayP[i]);
+      }
+
+        gamePlayP = [];
+        gamePlayC = [];
+
+  } else if (gamePlayP[1].Value<gamePlayC[1].Value){
+    alert("Computer Wins Battle!");
+    for (let i = 0; i<gamePlayC.length;i++){
+
+      computersArray.push(gamePlayC[i]);
+    }
+    for (let i = 0; i<gamePlayP.length; i++){
+
+      computersArray.push(gamePlayP[i]);
+    }
+
+    gamePlayP = [];
+    gamePlayC = [];
+
+} else if (gamePlayP[1].Value === gamePlayC[1].Value){
+    // alert("tie");
+    // $deal.hide();
+    const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
+    $('body').append($tie);
+    // $tie.on('click', tieCheck);
     $tie.on('click', tieCheck);
   }
 }
 //++++++++++++++clicks+++++++++++++++++++++++
+$tie.on('click', tieCheck);
 $deal.on('click', dealCard);
 $deal.on('click', () => {
   $('#pScore').text("Player's Score: " + playersArray.length);

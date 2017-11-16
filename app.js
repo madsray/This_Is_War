@@ -71,25 +71,14 @@ splitArray();
 }
 startGame();
 // +++++++++++++++++++Check Win++++++++++++++++++++
-// const checkWin = () => {
-//
-//   if (playersArray.length === 0){
-//     alert("You Lost!")
-//     $deal.hide();
-//     // const $restart = $("<div>").attr('id',"playAgain");
-//     $('body').append($restart);
-//
-//
-//   } else if (computersArray.length === 0){
-//     alert("You won!")
-//     $deal.hide();
-//
-//     $('body').append($restart);
-//
-//
-//
-//   }
-// }
+const checkWin = () => {
+
+  if (playersArray.length === 0){
+    alert("You Lost!")
+  } else if (computersArray.length === 0){
+    alert("You won!")
+  }
+}
 
 // ++++++++++++++++++++tie Check++++++++++++++++++++++
 const tieCheck = () => {
@@ -140,60 +129,13 @@ const tieCheck = () => {
     checkCards2();
   }
 }
-//+++++++++++++++tie function++++++++++++++++++++++++++++
-// const tie = () => {
-//   //removes tie battle button
-//   // $(".tiebattle").remove();
-// //   //pushes tie cards if player and computer have more than five cards
-// // gamePlay.push(computersArray[0],computersArray[1],computersArray[2]);
-// // gamePlay.push(playersArray[0],playersArray[1],playersArray[2]);
-// //removes current tie cards
-// // $('.currentcard').remove();
-// //the fourth card is then flipped over to compare
-// const $imageP= $('<img>').attr('src',playersArray[0].Image).addClass("currentcard");
-// $('#player').append($imageP);
-// const $imageC= $('<img>').attr('src',computersArray[0].Image).addClass("currentcard");
-// $('#computer').append($imageC);
-// //this pushes the fourth card into the game play array
-// // gamePlay.push(playersArray[0],computersArray[0]);
-// gamePlayP = playersArray.shift();
-// gamePlayC = computersArray.shift();
-//
-// compareWar();
-// }
 
-
-
-// const compareWar = () => {
-//
-// if (computersArray[0].Value>playersArray[0].Value){
-//
-// gamePlay = []
-// }
-//
-//   // computersArray.splice(computersArray[0],1);
-//   // playersArray.splice(playersArray[0],1);
-//
-// } else if(computersArray[0].Value<playersArray[0].Value){
-//   for (let i = 0; i<gamePlay.length;i++){
-//   playersArray = gamePlay.shift();
-//   gamePlay = [];
-// }
-//
-//   // computersArray.splice(computersArray[0],1);
-//   // playersArray.splice(playersArray[0],1);
-//   // console.log("Player after player wins tie:" + playersArray)
-//   // console.log("computer after player looses tie:" + computersArray)
-// } else if (computersArray[0].Value===playersArray[0].Value){
-//   computersArray.splice(computersArray[0],1);
-//   playersArray.splice(playersArray[0],1);
-//   tieCheck();
-// }
-// }
 //+++++++++++++hitCard+++++++++++++++++++++
     const dealCard = () => {
       $tie.hide();
       $deal.show();
+
+      checkWin();
       $('.currentcard').remove();
 
       const $imageP=
@@ -214,7 +156,8 @@ const checkCards = () => {
 
 
   if (gamePlayP[0].Value>gamePlayC[0].Value){
-      alert('Player Wins Battle!');
+      // alert('Player Wins Battle!');
+swal('Player Wins Battle!')
 
         playersArray.push(gamePlayP[0]);
         playersArray.push(gamePlayC[0]);
@@ -224,7 +167,7 @@ const checkCards = () => {
         gamePlayC = [];
 
   } else if (gamePlayP[0].Value<gamePlayC[0].Value){
-    alert("Computer Wins Battle!");
+    swal('Computer Wins Battle!')
     computersArray.push(gamePlayC[0]);
     computersArray.push(gamePlayP[0]);
 
@@ -232,8 +175,7 @@ const checkCards = () => {
     gamePlayC = [];
 
 } else if (gamePlayP[0].Value === gamePlayC[0].Value){
-    // alert("tie");
-    // $deal.hide();
+  swal('Tie!')
     const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
     $('body').append($tie);
     // $tie.on('click', tieCheck);
@@ -244,7 +186,7 @@ const checkCards2 = () => {
 
 
   if (gamePlayP[1].Value>gamePlayC[1].Value){
-      alert('Player Wins Battle!');
+      swal('Player Wins Battle!')
       for (let i = 0; i<gamePlayC.length;i++){
 
         playersArray.push(gamePlayC[i]);
@@ -258,7 +200,7 @@ const checkCards2 = () => {
         gamePlayC = [];
 
   } else if (gamePlayP[1].Value<gamePlayC[1].Value){
-    alert("Computer Wins Battle!");
+    swal('Computer Wins Battle!')
     for (let i = 0; i<gamePlayC.length;i++){
 
       computersArray.push(gamePlayC[i]);
@@ -272,8 +214,7 @@ const checkCards2 = () => {
     gamePlayC = [];
 
 } else if (gamePlayP[1].Value === gamePlayC[1].Value){
-    // alert("tie");
-    // $deal.hide();
+    swal('Tie!')
     const $tie = $("<div>").text("Tie Battle!").addClass("tiebattle");
     $('body').append($tie);
     // $tie.on('click', tieCheck);
